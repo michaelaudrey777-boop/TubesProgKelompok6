@@ -8,9 +8,12 @@ var x = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_INHERIT
 	position = p1
 	$"../..".visible = true
 	get_tree().paused = true
+	$"../texts".visible = true
+	$"../thethings".visible = false
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("Up") or Input.is_action_pressed("Left"):
@@ -28,6 +31,12 @@ func _input(event: InputEvent) -> void:
 		if $"../texts/Play".has_focus():
 			$"../..".queue_free()
 			get_tree().paused = false
+		if $"../texts/Settings".has_focus():
+			$"../texts".visible = false
+			$"../thethings".visible = true
+			hide()
+			$".".process_mode = PROCESS_MODE_PAUSABLE
+			$"../thethings/return".grab_focus()
 			
 func _process(delta: float) -> void:
 	if position == p1:

@@ -8,6 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://cj24aqkjewr4y" path="res://assets/main_menu/exit.png" id="6_lgwnu"]
 [ext_resource type="Texture2D" uid="uid://bm52vjsidungm" path="res://assets/main_menu/arrow.png" id="7_flqon"]
 [ext_resource type="Script" uid="uid://5ydtcsmxi2of" path="res://scripts/main_menu/arrow.gd" id="8_rcqid"]
+[ext_resource type="Texture2D" uid="uid://b6qga6lmpgn7j" path="res://assets/pause_menu/slider/music.png" id="9_lgwnu"]
+[ext_resource type="Texture2D" uid="uid://cieex1p4k04mt" path="res://assets/pause_menu/slider/sfx.png" id="10_flqon"]
+[ext_resource type="Texture2D" uid="uid://bs8763fxvlk1c" path="res://assets/pause_menu/slider/drag.png" id="11_rcqid"]
+[ext_resource type="Texture2D" uid="uid://brbd1r0lhjy4m" path="res://assets/main_menu/return.png" id="12_flqon"]
+[ext_resource type="Script" uid="uid://b0w7dvtb2ugel" path="res://scripts/main_menu/return.gd" id="13_rcqid"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wu84c"]
 texture = ExtResource("1_ekxnf")
@@ -1151,6 +1156,56 @@ sources/1 = SubResource("TileSetAtlasSource_jk1qb")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5dd4i"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ajci"]
+bg_color = Color(0.8156863, 0.76862746, 0.6431373, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7b55j"]
+bg_color = Color(1.2282553, 1.158898, 0.9739451, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5pajh"]
+texture = ExtResource("11_rcqid")
+texture_margin_left = 25.0
+texture_margin_top = 25.0
+texture_margin_right = 25.0
+texture_margin_bottom = 25.0
+expand_margin_left = 12.0
+expand_margin_top = 12.0
+expand_margin_right = 9.0
+expand_margin_bottom = 9.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j7ex8"]
+texture = ExtResource("11_rcqid")
+texture_margin_left = 25.0
+texture_margin_top = 25.0
+texture_margin_right = 25.0
+texture_margin_bottom = 25.0
+expand_margin_left = 12.0
+expand_margin_top = 12.0
+expand_margin_right = 9.0
+expand_margin_bottom = 9.0
+modulate_color = Color(1.499905, 1.499905, 1.499905, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a8gd2"]
+texture = ExtResource("11_rcqid")
+texture_margin_left = 25.0
+texture_margin_top = 25.0
+texture_margin_right = 25.0
+texture_margin_bottom = 25.0
+expand_margin_left = 12.0
+expand_margin_top = 12.0
+expand_margin_right = 9.0
+expand_margin_bottom = 9.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_flqon"]
+
 [node name="main menu" type="Control" unique_id=467662247]
 process_mode = 3
 layout_mode = 3
@@ -1191,6 +1246,7 @@ texture = ExtResource("3_tbmy8")
 centered = false
 
 [node name="texts" type="Control" parent="." unique_id=900223011]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -1232,7 +1288,79 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="arrow" type="Sprite2D" parent="." unique_id=858002222]
-position = Vector2(751.00006, 682)
+position = Vector2(732, 681)
 scale = Vector2(0.08541665, 0.08541665)
 texture = ExtResource("7_flqon")
 script = ExtResource("8_rcqid")
+
+[node name="thethings" type="Control" parent="." unique_id=265213212]
+anchors_preset = 0
+offset_left = -697.0
+offset_top = -63.000004
+offset_right = -657.0
+offset_bottom = -23.000004
+scale = Vector2(1.5, 1.5)
+
+[node name="music" type="Sprite2D" parent="thethings" unique_id=78370812]
+position = Vector2(845, 341)
+scale = Vector2(0.75333333, 0.75333333)
+texture = ExtResource("9_lgwnu")
+
+[node name="sfx" type="Sprite2D" parent="thethings" unique_id=1159098672]
+position = Vector2(866, 402)
+scale = Vector2(0.753, 0.753)
+texture = ExtResource("10_flqon")
+
+[node name="musicscroll" type="HScrollBar" parent="thethings" unique_id=1013476167]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 934.0
+offset_top = 316.0
+offset_right = 1376.0
+offset_bottom = 323.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/scroll = SubResource("StyleBoxFlat_1ajci")
+theme_override_styles/scroll_focus = SubResource("StyleBoxFlat_7b55j")
+theme_override_styles/grabber = SubResource("StyleBoxTexture_5pajh")
+theme_override_styles/grabber_highlight = SubResource("StyleBoxTexture_j7ex8")
+theme_override_styles/grabber_pressed = SubResource("StyleBoxTexture_a8gd2")
+value = 100.0
+
+[node name="sfxscroll" type="HScrollBar" parent="thethings" unique_id=787939245]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 934.0
+offset_top = 377.0
+offset_right = 1376.0
+offset_bottom = 384.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/scroll = SubResource("StyleBoxFlat_1ajci")
+theme_override_styles/scroll_focus = SubResource("StyleBoxFlat_7b55j")
+theme_override_styles/grabber = SubResource("StyleBoxTexture_5pajh")
+theme_override_styles/grabber_highlight = SubResource("StyleBoxTexture_j7ex8")
+theme_override_styles/grabber_pressed = SubResource("StyleBoxTexture_a8gd2")
+value = 100.0
+
+[node name="return" type="Button" parent="thethings" unique_id=1659857340]
+layout_mode = 0
+offset_left = 942.66693
+offset_top = 399.3333
+offset_right = 1266.7266
+offset_bottom = 592.6666
+theme_override_styles/focus = SubResource("StyleBoxEmpty_flqon")
+icon = ExtResource("12_flqon")
+flat = true
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("13_rcqid")
+
+[node name="arrow2" type="Sprite2D" parent="thethings" unique_id=1361876224]
+position = Vector2(952.6667, 496)
+scale = Vector2(0.056944437, 0.056944437)
+texture = ExtResource("7_flqon")
