@@ -134,6 +134,7 @@ theme_override_styles/scroll_focus = SubResource("StyleBoxFlat_sro07")
 theme_override_styles/grabber = SubResource("StyleBoxTexture_umvci")
 theme_override_styles/grabber_highlight = SubResource("StyleBoxTexture_s5p1y")
 theme_override_styles/grabber_pressed = SubResource("StyleBoxTexture_3t4qf")
+value = 100.0
 
 [node name="sfxscroll" type="HScrollBar" parent="Control/thethings" unique_id=1427898497]
 layout_mode = 1
@@ -151,6 +152,7 @@ theme_override_styles/scroll_focus = SubResource("StyleBoxFlat_sro07")
 theme_override_styles/grabber = SubResource("StyleBoxTexture_umvci")
 theme_override_styles/grabber_highlight = SubResource("StyleBoxTexture_s5p1y")
 theme_override_styles/grabber_pressed = SubResource("StyleBoxTexture_3t4qf")
+value = 100.0
 
 [node name="return" type="Button" parent="Control/thethings" unique_id=1839805630]
 layout_mode = 0
